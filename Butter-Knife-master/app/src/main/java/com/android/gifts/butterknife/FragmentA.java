@@ -47,11 +47,16 @@ public class FragmentA extends Fragment {
         setBackground(fancyColor2);
     }
 
-    @Subscribe
+   /* @Subscribe
     public void onClickEvent(ClickEvent evt)
     {
         setBackground(fancyColor);
 
+    }*/
+    @Subscribe
+    public void onEvent(String str)
+    {
+        setBackground(fancyColor);
     }
     private void setBackground(int color)
     {

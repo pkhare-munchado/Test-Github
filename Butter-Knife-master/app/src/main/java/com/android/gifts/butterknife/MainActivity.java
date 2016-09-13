@@ -26,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
     protected EditText txtLastName;
     @BindView(R.id.fragment_container)
     protected FrameLayout fragmentContainer;
-    @BindString(R.string.alert_both_field_mandatory) String invalidMsg;
+    @BindString(R.string.alert_both_field_mandatory)
+    String invalidMsg;
 
     private EventBus bus = EventBus.getDefault();
 
@@ -45,15 +46,15 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.make_toast_button)
     public void sayHi(Button button) {
-        if (!TextUtils.isEmpty(txtFirstName.getText().toString()) && !TextUtils.isEmpty(txtLastName.getText().toString()))
-        {
+        if (!TextUtils.isEmpty(txtFirstName.getText().toString()) && !TextUtils.isEmpty(txtLastName.getText().toString())) {
             // we defined a specific type as input (Button button), and it will automatically be cast.
             // so we can control it easily like this
             button.setText("Toast Done");
-            bus.post(new ClickEvent("Clicked"));
-        }
-        else
-        Toast.makeText(getApplicationContext(), invalidMsg, Toast.LENGTH_SHORT).show();
+            // if don't need to create model class then you can use simple String as object and subscriber can subscribe OnEvent method with String parameter.
+//            bus.post(new ClickEvent("Clicked"));
+            bus.post("Clicked");
+        } else
+            Toast.makeText(getApplicationContext(), invalidMsg, Toast.LENGTH_SHORT).show();
 
 
     }
