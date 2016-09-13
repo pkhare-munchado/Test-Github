@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Butter Knife</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="alert_both_field_mandatory">Please provide input for both field.</string>
+</resources>
